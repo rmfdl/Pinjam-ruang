@@ -20,7 +20,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-5">
+                {{-- <div class="col-md-5">
                     <div class="form-group">
                         <label for="user_id">User</label>
                         <select class="form-control select2" name="user_id" id="user_id">
@@ -29,7 +29,7 @@
                             @endforeach
                         </select>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-md-2">
                     <button class="btn btn-primary mt-4">
                         Filter

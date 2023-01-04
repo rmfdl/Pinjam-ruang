@@ -34,9 +34,6 @@
                         <th>
                             {{ trans('cruds.room.fields.description') }}
                         </th>
-                        {{-- <th>
-                            {{ trans('cruds.room.fields.hourly_rate') }}
-                        </th> --}}
                         <th>
                             &nbsp;
                         </th>
@@ -49,7 +46,7 @@
 
                             </td>
                             <td>
-                                {{ $room->id ?? '' }}
+                                {{ $loop->iteration ?? '' }}
                             </td>
                             <td>
                                 {{ $room->name ?? '' }}
@@ -60,9 +57,6 @@
                             <td>
                                 {{ $room->description ?? '' }}
                             </td>
-                            {{-- <td>
-                                {{ $room->hourly_rate ?? '' }}
-                            </td> --}}
                             <td>
                                 @can('room_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.rooms.show', $room->id) }}">

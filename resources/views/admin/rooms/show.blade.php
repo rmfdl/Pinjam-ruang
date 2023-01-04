@@ -20,7 +20,7 @@
                             {{ trans('cruds.room.fields.id') }}
                         </th>
                         <td>
-                            {{ $room->id }}
+                            {{ $loop->iteration }}
                         </td>
                     </tr>
                     <tr>
@@ -47,14 +47,6 @@
                             {{ $room->description }}
                         </td>
                     </tr>
-                    {{-- <tr>
-                        <th>
-                            {{ trans('cruds.room.fields.hourly_rate') }}
-                        </th>
-                        <td>
-                            {{ $room->hourly_rate }}
-                        </td>
-                    </tr> --}}
                 </tbody>
             </table>
             <div class="form-group">

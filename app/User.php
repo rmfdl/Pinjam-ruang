@@ -86,31 +86,4 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
 
     }
-
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class);
-    }
-
-    public function chargeCredits($hours, Room $room)
-    {
-        $amount = $hours * (int) $room->hourly_rate * 100;
-
-        if ($this->credits < $amount) {
-            return false;
-        }
-
-        $this->credits -= $amount;
-        $this->save();
-
-        Transaction::create([
-            'user_id'      => $this->id,
-            'room_id'      => $room->id,
-            'paid_amount'  => $amount,
-            'booking_time' => $hours,
-        ]);
-
-        return true;
-    }
-
 }

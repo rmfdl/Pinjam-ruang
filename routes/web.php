@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Route;
+
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -8,6 +11,8 @@ Route::get('/home', function () {
 
     return redirect()->route('admin.home');
 });
+Route::get('/register', [RegisterController::class,'register']);
+Route::post('/register', [RegisterController::class, 'create'])->name('register');
 
 Auth::routes(['register' => false]);
 // Admin
@@ -38,9 +43,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::get('search-room', 'BookingsController@searchRoom')->name('searchRoom');
     Route::post('book-room', 'BookingsController@bookRoom')->name('bookRoom');
-
-    Route::get('my-credits', 'BalanceController@index')->name('balance.index');
-    Route::post('add-balance', 'BalanceController@add')->name('balance.add');
-
-    Route::resource('transactions', 'TransactionsController')->only(['index']);
 });

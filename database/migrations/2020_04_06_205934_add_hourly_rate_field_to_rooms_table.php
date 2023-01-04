@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -29,4 +29,4 @@ class AddHourlyRateFieldToRoomsTable extends Migration
             $table->dropColumn('hourly_rate');
         });
     }
-}
+} -->
